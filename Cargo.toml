@@ -1,0 +1,27 @@
+[package]
+name = "swtch"
+version = "0.1.0"
+edition = "2021"
+description = "SWTCH Platform Multi-Chain SDK for Rust"
+authors = ["Astor Rivera <astor@swtch.network>"]
+license = "GPL-3.0"
+repository = "https://github.com/swtchlabs/swtch-rs"
+documentation = "https://docs.rs/swtch"
+readme = "README.md"
+keywords = ["blockchain", "sdk", "multi-chain"]
+categories = ["cryptography::cryptocurrencies"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+async-trait = "0.1.81"
+ethers = { version = "2.0.14", features = ["abigen","legacy"] }
+hex = "0.4.3"
+mockall = "0.12.1"
+serde = "1.0.204"
+serde_json = "1.0.120"
+tokio = { version = "1.38.0", features = ["full"] }
+
+[lib]
+name = "swtch_sdk"
+path = "src/lib.rs"
