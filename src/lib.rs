@@ -1,7 +1,9 @@
 // src/lib.rs
+pub mod crypto;
 pub mod context;
 pub mod identity;
 pub mod transactions;
+pub mod utils;
 
 pub use crate::context::{ContextManager, Config, BlockchainConfig, WalletConfig, ChainType, NetworkType, TestnetType};
 pub use crate::identity::{IdentityManager, Identity};
