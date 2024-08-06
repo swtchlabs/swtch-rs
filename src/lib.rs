@@ -2,6 +2,7 @@
 pub mod crypto;
 pub mod context;
 pub mod identity;
+pub mod net;
 pub mod reputation;
 pub mod secrets;
 pub mod transactions;
