@@ -73,7 +73,8 @@ impl SwtchSDK {
         self.context_manager.set_active_config(name)
     }
 
-    pub async fn initialize_identity_manager(&mut self, contract_address: Address) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn initialize_identity_manager(&mut self, contract_addr: &str) -> Result<(), Box<dyn std::error::Error>> {
+        let contract_address: Address = contract_addr.parse().expect("Invalid address");
         let config = self.context_manager.get_active_config().ok_or("No active configuration")?;
         let provider = Provider::<Http>::try_from(config.blockchain.provider_url.clone())?;
         let client = Arc::new(provider);
@@ -83,11 +84,12 @@ impl SwtchSDK {
         Ok(())
     }
 
-    pub async fn load_identity(&self, did: Address) -> Result<Identity, Box<dyn std::error::Error>> {
+    pub async fn load_identity(&self, did: &str) -> Result<Identity, Box<dyn std::error::Error>> {
+        let did_addr:Address = did.parse().expect("Invalid Address");
         self.identity_manager
             .as_ref()
             .ok_or("IdentityManager not initialized")?
-            .load_identity(did)
+            .load_identity(did_addr)
             .await
     }
 
