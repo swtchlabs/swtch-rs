@@ -3,6 +3,7 @@ pub mod crypto;
 pub mod context;
 pub mod identity;
 pub mod reputation;
+pub mod secrets;
 pub mod transactions;
 pub mod utils;
 
@@ -12,7 +13,7 @@ pub use crate::transactions::TransactionReceipt as SWTCHTransaction;
 
 use ethers::prelude::*;
 use ethers::providers::{Provider, Http};
-use ethers::types::{Address, Signature, TransactionReceipt, U256};
+use ethers::types::{Address, Signature};
 use std::sync::Arc;
 
 pub struct SwtchSDK {
